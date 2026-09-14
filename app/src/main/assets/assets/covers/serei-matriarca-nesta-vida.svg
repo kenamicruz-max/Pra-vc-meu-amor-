@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17101f"/><stop offset=".48" stop-color="#3b2342"/><stop offset="1" stop-color="#a85f86"/></linearGradient><radialGradient id="r"><stop stop-color="#c99a63" stop-opacity=".55"/><stop offset="1" stop-color="#c99a63" stop-opacity="0"/></radialGradient></defs>
+<rect width="600" height="900" fill="url(#g)"/><circle cx="470" cy="150" r="260" fill="url(#r)"/><circle cx="100" cy="760" r="240" fill="url(#r)" opacity=".45"/>
+<path d="M55 80H545V820H55z" fill="none" stroke="#f5d8e8" stroke-opacity=".5" stroke-width="3"/><path d="M80 105H520V795H80z" fill="none" stroke="#e9c98d" stroke-opacity=".35"/>
+<text x="300" y="170" fill="#e9c98d" font-size="25" text-anchor="middle" font-family="Georgia">✦  PARA VOCÊ  ✦</text>
+<text x="300" y="430" fill="white" font-size="42" font-weight="700" text-anchor="middle" font-family="Georgia">Serei A Matriarca
+Nesta Vida</text>
+<text x="300" y="510" fill="#f0bfd8" font-size="23" text-anchor="middle" font-family="Georgia">regressão · poder</text>
+<text x="300" y="745" fill="#fff" fill-opacity=".7" font-size="20" text-anchor="middle" font-family="Georgia">🌹  romance · fantasia · drama  🌹</text>
+<text x="300" y="780" fill="#fff" fill-opacity=".55" font-size="17" text-anchor="middle" font-family="Georgia">uma história para descobrir</text>
+</svg>

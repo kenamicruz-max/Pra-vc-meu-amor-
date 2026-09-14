@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 860">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#311b2d"/><stop offset="1" stop-color="#a45479"/></linearGradient><radialGradient id="r"><stop stop-color="#ffd0e2" stop-opacity=".32"/><stop offset="1" stop-color="#ffd0e2" stop-opacity="0"/></radialGradient></defs>
+<rect width="600" height="860" fill="url(#g)"/><circle cx="510" cy="120" r="240" fill="url(#r)"/><circle cx="90" cy="700" r="230" fill="url(#r)"/>
+<path d="M70 110 C170 55 220 180 300 110 S430 60 530 120" fill="none" stroke="#ffd0e2" stroke-opacity=".35" stroke-width="2"/>
+<text x="50%" y="95" text-anchor="middle" fill="#ffd0e2" font-family="Georgia,serif" font-size="20" letter-spacing="5">PARA VOCÊ ♡</text>
+<text x="50%" y="375" text-anchor="middle" fill="#fff8fc" font-family="Georgia,serif" font-size="34" font-weight="600"><tspan x="50%" dy="0px">Casamento Morno</tspan></text>
+<text x="50%" y="760" text-anchor="middle" fill="#fff8fc" fill-opacity=".7" font-family="sans-serif" font-size="15" letter-spacing="3">ROMANCE · FANTASIA · WEBTOON</text>
+<text x="50%" y="805" text-anchor="middle" fill="#ffd0e2" font-family="Georgia,serif" font-size="28">✦  🌹  ✦</text>
+</svg>

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para você, meu amor ♡ — Jasmyn</title>
+<meta name="description" content="Biblioteca web de manhwas reais, feita especialmente para Jasmyn.">
+<meta name="application-name" content="Para você, meu amor ♡">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌙</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0c0a14">
+<meta name="app-version" content="VJK5.9">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<style id="critical-shell">html,body{background:#0c0a14!important;min-height:100%;}body{margin:0;color:#f1ecf9;}img{background:#151222;}</style>
+</head>
+<body>
+<div id="atmosphereBackdrop" aria-hidden="true"><span class="atmo-orb atmo-orb-a"></span><span class="atmo-orb atmo-orb-b"></span><span class="atmo-orb atmo-orb-c"></span><span class="atmo-stars"></span><span class="atmo-rays"></span><span class="atmo-reflect"></span></div>
+
+<!-- ===== Top bar ===== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <span class="brand" id="loveTitle">Meu amor ♡</span>
+    <nav class="nav-links">
+      <a href="#inicio" class="active">Início</a>
+      <a href="#biblioteca">Biblioteca</a>
+      <a href="#assistente">Assistente</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#minha-lista">Favoritos</a>
+      <a href="#minha-lista">Minha lista</a>
+      <a href="#sobre">Sobre</a>
+    </nav>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Buscar por título, gênero, etiqueta...">
+    </div>
+    <button class="install-app-btn" data-install-app title="Instalar no celular" aria-label="Instalar no celular">📱</button>
+    <div class="appearance-control"><button class="icon-btn" id="themeToggle" type="button" title="Escolher aparência" aria-label="Escolher aparência" aria-expanded="false">🌙</button><div class="appearance-menu" id="appearanceMenu" role="menu" aria-hidden="true"><div class="appearance-menu-title">Aparência da página</div><button type="button" data-atmosphere="light" role="menuitem">☀️ <span>Claro</span><small>leve e luminoso</small></button><button type="button" data-atmosphere="dark" role="menuitem">🌙 <span>Escuro</span><small>o clássico</small></button><button type="button" data-atmosphere="rain" role="menuitem">🌧️ <span>Chuva</span><small>azul, escuro e nublado</small></button><button type="button" data-atmosphere="nightcity" role="menuitem">🌃 <span>Night City</span><small>luzes profundas da madrugada</small></button><button type="button" data-atmosphere="galaxy" role="menuitem">🌌 <span>Galáxia</span><small>violeta, estrelas e profundidade</small></button><button type="button" data-atmosphere="sunset" role="menuitem">🌅 <span>Atardecer</span><small>crepúsculo quente e suave</small></button><button type="button" data-atmosphere="marine" role="menuitem">🌊 <span>Marinho</span><small>oceano profundo e calmo</small></button><button type="button" data-atmosphere="depth3d" role="menuitem">🪐 <span>3D</span><small>camadas flutuantes e sombra</small></button><button type="button" data-atmosphere="passion" role="menuitem">😏 <span>Jasmyn… 😏</span><small>paixão escura · vermelho profundo e sombras</small></button></div></div>
+  </div>
+</header>
+
+<main class="container" id="inicio">
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <h1 class="hero-greeting">Oi, Jasmyn <span class="heart">♡</span></h1>
+    <p class="hero-quote" id="welcomeQuote">Boa leitura, Jasmyn ♡</p><div class="love-decor" aria-hidden="true"><span>🌹</span><i>✦</i><span>🌸</span><i>✧</i><span>🌹</span></div>
+
+    <div class="hero-card">
+      <div>
+        <p class="hero-eyebrow">DESTAQUE DE HOJE</p>
+        <h2 class="hero-title" id="heroTitle">—</h2>
+        <p class="hero-desc" id="heroDesc">—</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="heroReadBtn">▶ Ler agora</button>
+          <button class="btn btn-ghost" id="heroDetailsBtn">Ver ficha</button>
+        </div>
+      </div>
+      <div class="hero-visual" id="heroVisual">🌙</div>
+    </div>
+    <div class="letter-trigger-wrap">
+      <button class="letter-trigger" id="loveLetterBtn" type="button" aria-expanded="false">
+        <span class="letter-trigger-emoji">💌</span>
+        <span class="letter-trigger-label">Cartinha do dia</span>
+        <span class="letter-trigger-sparkle">✦</span>
+      </button>
+    </div>
+  </section>
+  <div class="main-secret-row secret-row-hero"><button class="secret-bubble secret-bubble-mini" id="secretHeroBubble" type="button" aria-label="Uma pequena surpresa secreta"><span class="secret-bubble-glow">psiu…</span><i>✦</i></button><span class="secret-message" id="secretHeroBubbleMessage" aria-live="polite"></span></div>
+
+  <section class="love-letter" id="loveLetter" hidden aria-live="polite">
+    <button class="letter-close" id="closeLoveLetter" type="button" aria-label="Fechar cartinha">×</button>
+    <span class="letter-kicker">CARTINHA DO DIA ♡</span>
+    <p class="letter-message" id="letterText">Jasmyn, que hoje seu coração encontre uma história que faça você sorrir. ♡</p>
+    <p class="letter-signature">Kevin Daniel ♡</p>
+  </section>
+
+  <section class="section assistant-section" id="assistente">
+    <div class="section-head">
+      <div>
+        <h2 class="section-title">👑 Helena · Ajudante da Rainha</h2>
+        <p class="section-subtitle">Sua ajudante particular está de plantão. Pode pedir uma leitura, desabafar, conversar ou simplesmente falar do seu dia.</p>
+      </div>
+    </div>
+    <div class="assistant-card">
+      <div class="assistant-orb" aria-hidden="true">✦</div>
+      <div class="assistant-main">
+        <div class="assistant-identity"><div class="assistant-identity-icon">H</div><div><strong>Helena</strong><span>assistente pessoal da rainha · de plantão ♡</span></div></div>
+        <div class="assistant-bubble">Meu nome é Helena. Sou a assistente da rainha. 👑 Pode contar comigo, minha senhora. Posso ajudar a escolher uma história, ouvir um desabafo, conversar sobre qualquer assunto ou simplesmente ficar aqui com você. ♡</div>
+        <form id="assistantForm" class="assistant-form">
+          <label class="sr-only" for="assistantInput">Converse com o assistente</label>
+          <input id="assistantInput" type="text" autocomplete="off" enterkeyhint="send" placeholder="O que você quer ler hoje?" aria-label="Converse com o assistente">
+          <button class="assistant-clear" type="button" id="assistantClear" aria-label="Limpar conversa" title="Limpar conversa">↺</button>
+          <button class="btn btn-primary" type="submit">Conversar ♡</button>
+          <button class="btn btn-ghost choose-spectacular" type="button" id="chooseForMeBtn">🎲 Deixa comigo</button>
+        </form>
+        <div class="assistant-prompts" aria-label="Sugestões rápidas">
+          <button type="button" data-assistant-prompt="princesa com romance e fantasia">👑 Princesa + fantasia</button>
+          <button type="button" data-assistant-prompt="casamento por contrato e romance lento">💍 Contrato + slow burn</button>
+          <button type="button" data-assistant-prompt="vilã, regressão e romance intenso">🥀 Vilã + regressão</button>
+          <button type="button" data-assistant-prompt="obsessivo, possessivo, perigoso e mistério">🖤 Obsessão + mistério</button>
+          <button type="button" data-assistant-prompt="traição, vingança e mulher poderosa">🥀 Vingança + poder</button>
+          <button type="button" data-assistant-prompt="por que perdi a emoção de ler?">🌙 Perdi a vontade de ler</button>
+          <button type="button" data-assistant-prompt="qual dessas combina mais comigo?">💗 Qual combina comigo?</button>
+          <button type="button" data-assistant-prompt="quero conversar sobre meu relacionamento">💌 Quero conversar</button>
+        </div>
+        <div id="assistantReply" class="assistant-reply" aria-live="polite"><div class="assistant-message assistant-message-bot"><p>Estou pronta. Pode falar comigo normalmente. Se quiser conversar sobre alguma coisa que aconteceu com você, eu também fico aqui para ouvir. ♡</p></div></div>
+      </div>
+    </div>
+    <p class="assistant-note">Ela é sua ajudante: procura histórias, aprende preferências de leitura neste aparelho, conversa sobre seu humor e relacionamentos e pode até escolher por você. A conversa continua funcionando mesmo sem a IA online.</p>
+  </section>
+
+  <div class="floating-stars" aria-hidden="true"><span>✦</span><span>˚</span><span>🌹</span><span>˚</span><span>✧</span></div>
+  <section class="section special-story" id="historia-especial">
+    <div class="special-story-card">
+      <div class="special-story-cover-wrap">
+        <div class="special-story-cover-layer"></div>
+        <img class="special-story-cover" src="https://us-a.tapas.io/sa/77/d43c2cc5-337f-48c4-813e-461e3e7bc469_z.jpg" alt="Capa oficial de Eu me Tornei a Filha Adotiva do Protagonista" loading="eager" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('cover-missing');">
+        <span class="special-story-badge">♡ OBRA ESPECIAL</span>
+      </div>
+      <div class="special-story-content">
+        <p class="hero-eyebrow">A ESCOLHA QUE VOCÊ PEDIU</p>
+        <h2>Eu me Tornei a Filha Adotiva do Protagonista</h2>
+        <p class="special-story-alt">The Male Lead's Little Lion Daughter · I Became the Male Lead's Adopted Daughter</p>
+        <p>Uma fantasia de família, realeza e descobertas em torno de Leonia e do temido Duque Ferio Voreoti. Aqui a ficha, a apresentação e a recomendação estão em português do Brasil; a capa é a imagem oficial exibida na página da obra no Tapas.</p>
+        <div class="story-pills"><span>🦁 Família</span><span>🏰 Duque</span><span>✨ Fantasia</span><span>🌸 Fofura</span></div>
+        <div class="special-story-actions">
+          <button class="btn btn-primary" id="specialStoryRead">▶ Abrir no Tapas</button>
+          <button class="btn btn-ghost" id="specialStoryDetails">Ver ficha completa</button>
+        </div>
+        <small>PT-BR editorial no site. A leitura oficial localizada está em inglês; não incluí links para traduções não oficiais.</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="section language-note" aria-label="Idioma">
+    <div class="mini-notice">
+      <span class="mini-notice-icon">🇧🇷</span>
+      <div>
+        <strong>Biblioteca em português do Brasil</strong>
+        <p>A biblioteca foi ampliada com muitas obras encontradas em catálogos oficiais em PT-BR. As fichas, prévias e detalhes estão em português; quando a plataforma oferece leitura oficial em PT-BR, o botão <b>Ler em PT-BR</b> leva direto para a obra.</p>
+        <a class="catalog-more" href="https://br.comikey.com/genres/romance/" target="_blank" rel="noopener">🌹 Descobrir mais romances em PT-BR ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Carrossel de destaques ===== -->
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">🔥 Para você hoje</h2>
+    </div>
+    <div class="carousel jasmyn-feature-carousel" aria-label="Manhwas em destaque para Jasmyn">
+      <div class="carousel-track" id="carouselTrack"></div>
+      <button class="carousel-nav prev" id="carouselPrev" aria-label="Anterior">‹</button>
+      <button class="carousel-nav next" id="carouselNext" aria-label="Próximo">›</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+    <p class="carousel-auto-note">Deslize para escolher · muda sozinho a cada 8 segundos</p>
+  </section>
+
+  <!-- ===== Continue lendo ===== -->
+  <section class="section hidden" id="continueSection">
+    <div class="section-head">
+      <h2 class="section-title">📖 Continue lendo</h2>
+    </div>
+    <div class="shelf" id="continueShelf"></div>
+  </section>
+
+  <!-- ===== Favoritos (prévia) ===== -->
+  <section class="section hidden" id="favoritesPreviewSection">
+    <div class="section-head">
+      <h2 class="section-title">❤️ Seus favoritos</h2>
+      <a href="#favoritos-section" class="section-count">ver todos</a>
+    </div>
+    <div class="shelf" id="favoritesShelf"></div>
+  </section>
+
+  <!-- ===== Recomendados ===== -->
+  <section class="section hidden" id="recommendedSection">
+    <div class="section-head">
+      <h2 class="section-title">✨ Achamos que você vai gostar ♡</h2>
+    </div>
+    <div class="shelf" id="recommendedShelf"></div>
+  </section>
+
+  <!-- ===== Onde você também assiste ===== -->
+  <section class="section source-hub-section" id="fontes-da-jasmyn" aria-labelledby="sourcesTitle">
+    <div class="section-head">
+      <div>
+        <span class="jasmyn-kicker">SEPARADO PARA FICAR MAIS CLARO ♡</span>
+        <h2 class="section-title" id="sourcesTitle">📱 Onde você também assiste</h2>
+        <p class="section-subtitle">Os lugares para continuar suas leituras e descobrir outras histórias, separados de “Para você” e das categorias.</p>
+      </div>
+    </div>
+    <div class="source-hub-grid">
+      <a class="source-hub-card" href="https://www.webtoons.com/pt-br/" target="_blank" rel="noopener"><span class="source-hub-icon">💬</span><span><b>WEBTOON</b><small>Site oficial · Português</small></span><i>↗</i></a>
+      <a class="source-hub-card" href="https://br.comikey.com/" target="_blank" rel="noopener"><span class="source-hub-icon">κ</span><span><b>Comikey Brasil</b><small>Catálogo oficial · PT-BR</small></span><i>↗</i></a>
+      <a class="source-hub-card" href="https://www.webcomicsapp.com/" target="_blank" rel="noopener"><span class="source-hub-icon">▣</span><span><b>WebComics</b><small>Site oficial · leitura e eventos</small></span><i>↗</i></a>
+      <a class="source-hub-card" href="https://play.google.com/store/apps/details?id=com.mangageek.appmaanggageek" target="_blank" rel="noopener"><span class="source-hub-icon">😎</span><span><b>Manga Geek</b><small>App Android · catálogo</small></span><i>↗</i></a>
+      <a class="source-hub-card" href="https://mihon.app/" target="_blank" rel="noopener"><span class="source-hub-icon">◉</span><span><b>Mihon</b><small>Leitor Android · depende das fontes</small></span><i>↗</i></a>
+    </div>
+    <div class="source-hub-note">✦ O Mihon é um leitor, não um catálogo que hospeda as obras. A disponibilidade e o idioma dependem da fonte configurada.</div>
+  </section>
+
+  <!-- ===== Categorias · carrosséis editoriais ===== -->
+  <section class="section category-carousel-section" id="categorias" data-category="realeza" data-matches="princesa,realeza,duque,imperatriz">
+    <div class="section-head">
+      <div><h2 class="section-title">👑 Princesas & Duques</h2><p class="section-subtitle">Deslize para descobrir outra história.</p></div>
+    </div>
+    <div class="category-carousel" aria-label="👑 Princesas & Duques">
+      <div class="category-track" id="categoryTrack-realeza"></div>
+      <button class="category-nav prev" data-category-prev="realeza" aria-label="Anterior">‹</button>
+      <button class="category-nav next" data-category-next="realeza" aria-label="Próximo">›</button>
+    </div>
+    <div class="category-dots" id="categoryDots-realeza"></div>
+  </section>
+  <section class="section category-carousel-section" data-category="romance" data-matches="romance">
+    <div class="section-head">
+      <div><h2 class="section-title">🌹 Romance</h2><p class="section-subtitle">Deslize para descobrir outra história.</p></div>
+    </div>
+    <div class="category-carousel" aria-label="🌹 Romance">
+      <div class="category-track" id="categoryTrack-romance"></div>
+      <button class="category-nav prev" data-category-prev="romance" aria-label="Anterior">‹</button>
+      <button class="category-nav next" data-category-next="romance" aria-label="Próximo">›</button>
+    </div>
+    <div class="category-dots" id="categoryDots-romance"></div>
+  </section>
+  <section class="section category-carousel-section" data-category="dark" data-matches="dark romance">
+    <div class="section-head">
+      <div><h2 class="section-title">Dark romance 🖤🥀</h2><p class="section-subtitle">Deslize para descobrir outra história.</p></div>
+    </div>
+    <div class="category-carousel" aria-label="Dark romance 🖤🥀">
+      <div class="category-track" id="categoryTrack-dark"></div>
+      <button class="category-nav prev" data-category-prev="dark" aria-label="Anterior">‹</button>
+      <button class="category-nav next" data-category-next="dark" aria-label="Próximo">›</button>
+    </div>
+    <div class="category-dots" id="categoryDots-dark"></div>
+  </section>
+  <section class="section category-carousel-section" data-category="fantasia" data-matches="fantasia">
+    <div class="section-head">
+      <div><h2 class="section-title">🪄 Fantasia</h2><p class="section-subtitle">Deslize para descobrir outra história.</p></div>
+    </div>
+    <div class="category-carousel" aria-label="🪄 Fantasia">
+      <div class="category-track" id="categoryTrack-fantasia"></div>
+      <button class="category-nav prev" data-category-prev="fantasia" aria-label="Anterior">‹</button>
+      <button class="category-nav next" data-category-next="fantasia" aria-label="Próximo">›</button>
+    </div>
+    <div class="category-dots" id="categoryDots-fantasia"></div>
+  </section>
+  <section class="section category-carousel-section" data-category="vilas" data-matches="vilã,regressão,isekai">
+    <div class="section-head">
+      <div><h2 class="section-title">Vilãs ❤️‍🔥💅🏻</h2><p class="section-subtitle">Deslize para descobrir outra história.</p></div>
+    </div>
+    <div class="category-carousel" aria-label="Vilãs ❤️‍🔥💅🏻">
+      <div class="category-track" id="categoryTrack-vilas"></div>
+      <button class="category-nav prev" data-category-prev="vilas" aria-label="Anterior">‹</button>
+      <button class="category-nav next" data-category-next="vilas" aria-label="Próximo">›</button>
+    </div>
+    <div class="category-dots" id="categoryDots-vilas"></div>
+  </section>
+  <section class="section category-carousel-section" data-category="contrato" data-matches="casamento por contrato">
+    <div class="section-head">
+      <div><h2 class="section-title">💍 Casamento por contrato</h2><p class="section-subtitle">Deslize para descobrir outra história.</p></div>
+    </div>
+    <div class="category-carousel" aria-label="💍 Casamento por contrato">
+      <div class="category-track" id="categoryTrack-contrato"></div>
+      <button class="category-nav prev" data-category-prev="contrato" aria-label="Anterior">‹</button>
+      <button class="category-nav next" data-category-next="contrato" aria-label="Próximo">›</button>
+    </div>
+    <div class="category-dots" id="categoryDots-contrato"></div>
+  </section>
+  <section class="section category-carousel-section" data-category="drama" data-matches="drama">
+    <div class="section-head">
+      <div><h2 class="section-title">🎭 Drama</h2><p class="section-subtitle">Deslize para descobrir outra história.</p></div>
+    </div>
+    <div class="category-carousel" aria-label="🎭 Drama">
+      <div class="category-track" id="categoryTrack-drama"></div>
+      <button class="category-nav prev" data-category-prev="drama" aria-label="Anterior">‹</button>
+      <button class="category-nav next" data-category-next="drama" aria-label="Próximo">›</button>
+    </div>
+    <div class="category-dots" id="categoryDots-drama"></div>
+  </section>
+  <section class="section" id="descobertas">
+    <div class="section-head">
+      <div>
+        <h2 class="section-title">🌷 Mais descobertas em PT-BR</h2>
+        <p class="section-subtitle">Obras de plataformas diferentes, separadas para você saber de onde vem cada leitura.</p>
+      </div>
+    </div>
+    <div class="shelf" id="shelfPlatformPT"></div>
+  </section>
+
+  <!-- ===== Universo de Jasmyn · interações leves ===== -->
+  <section class="section jasmyn-universe" id="universo-jasmyn" aria-labelledby="jasmynUniverseTitle">
+    <div class="jasmyn-universe-head">
+      <div>
+        <span class="jasmyn-kicker">SEU UNIVERSO ♡</span>
+        <h2 class="section-title" id="jasmynUniverseTitle">Hoje, o que seu coração quer ler?</h2>
+        <p class="section-subtitle">Escolha um clima, deixe o destino escolher ou abra uma pequena surpresa.</p>
+      </div>
+      <div class="jasmyn-heart-mark" aria-hidden="true">♡</div>
+    </div>
+    <div class="mood-grid" role="group" aria-label="Escolha seu clima de leitura">
+      <button type="button" class="mood-btn" data-mood="romance">🌹<span>Romance</span></button>
+      <button type="button" class="mood-btn" data-mood="paixao">🔥<span>Paixão</span></button>
+      <button type="button" class="mood-btn" data-mood="realeza">👑<span>Realeza</span></button>
+      <button type="button" class="mood-btn" data-mood="drama">🥀<span>Drama</span></button>
+      <button type="button" class="mood-btn" data-mood="fantasia">✨<span>Fantasia</span></button>
+      <button type="button" class="mood-btn" data-mood="poder">⚔️<span>Mulher poderosa</span></button>
+    </div>
+    <div class="jasmyn-universe-actions">
+      <button class="universe-main-btn" type="button" id="chooseForHeartBtn">✨ Escolhe por mim</button>
+      <button class="universe-secret-btn" type="button" id="openLittleSurprise">🎁 Caixinha surpresa de hoje</button>
+    </div>
+    <div class="main-secret-row"><button class="secret-bubble secret-bubble-main" id="olhaSecretBubble" type="button" aria-label="Uma coisinha secreta"><span class="secret-bubble-glow">olha</span><i>👀</i></button><span class="secret-message" id="olhaSecretBubbleMessage" aria-live="polite"></span></div>
+    <div class="universe-result" id="universeResult" aria-live="polite">
+      <div class="universe-result-icon">💗</div>
+      <div><span class="jasmyn-kicker">UMA ESCOLHA PARA HOJE</span><h3 id="universeResultTitle">Escolha um clima para começar.</h3><p id="universeResultText">Eu separo uma história da biblioteca que combine com o momento.</p></div>
+      <button type="button" class="universe-result-btn hidden" id="universeOpenBtn">Ver história</button>
+    </div>
+  </section>
+  <div class="main-secret-row secret-row-mid"><button class="secret-bubble secret-bubble-mini" id="secretMidBubble" type="button" aria-label="Outra coisinha secreta"><span class="secret-bubble-glow">ei…</span><i>👀</i></button><span class="secret-message" id="secretMidBubbleMessage" aria-live="polite"></span></div>
+
+  <!-- ===== Biblioteca completa + busca/filtros ===== -->
+  <section class="section" id="biblioteca">
+    <div class="section-head">
+      <h2 class="section-title">📚 Biblioteca completa</h2>
+      <span class="section-count" id="resultsCount"></span>
+    </div>
+    <div class="filters" id="filterChips"></div>
+    <div id="libraryGrid" class="grid" style="margin-top:18px;"></div>
+    <div class="empty-state hidden" id="emptyState">
+      <div class="emoji">🌙</div>
+      <p>Nada por aqui ainda... tente outra palavra ou outro filtro ♡</p>
+    </div>
+  </section>
+
+  <!-- ===== Minha lista ===== -->
+  <section class="section" id="minha-lista">
+    <div class="section-head"><h2 class="section-title">👤 Minha lista</h2></div>
+
+    <div class="section-head" style="margin-top:6px;"><div><h3 style="font-family:var(--font-display); font-size:1.1rem;">❤️ Favoritos</h3><p class="list-count-line"><span class="list-fav-count">0 histórias guardadas</span> · toque no coração de qualquer obra para adicionar</p></div></div>
+    <div class="grid" id="favoritesGrid"></div>
+    <div class="empty-state hidden" id="emptyFavorites"><div class="emoji">♡</div><p>Você ainda não favoritou nenhuma obra.</p></div>
+
+    <div class="section-head" style="margin-top:28px;"><div><h3 style="font-family:var(--font-display); font-size:1.1rem;">📌 Quero ler</h3><p class="list-count-line"><span class="list-want-count">0 histórias esperando</span> · guarde para depois</p></div></div>
+    <div class="grid" id="wantGrid"></div>
+    <div class="empty-state hidden" id="emptyWant"><div class="emoji">📌</div><p>Sua lista de pendentes está vazia.</p></div>
+  </section>
+
+
+  <div class="main-secret-row secret-row-bottom"><button class="secret-bubble secret-bubble-soft" id="secretBottomBubble" type="button" aria-label="Uma mensagem secreta para Jasmyn"><span class="secret-bubble-glow">fica…</span><i>♡</i></button><span class="secret-message" id="secretBottomBubbleMessage" aria-live="polite"></span></div>
+
+  <!-- ===== Sobre ===== -->
+  <section class="section" id="sobre">
+    <div class="hero-card" style="grid-template-columns:1fr;">
+      <div>
+        <p class="hero-eyebrow">SOBRE ESTE CANTINHO</p>
+        <h2 class="hero-title">Uma biblioteca, não uma cópia</h2>
+        <p class="hero-desc">Esta página é um catálogo de descoberta e uma biblioteca pessoal — favoritos, lista de leitura e avaliações ficam salvos só neste navegador. Nenhum capítulo é hospedado aqui: ao tocar em “Ler agora”, você é levada para a plataforma oficial de cada obra.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Cantinho de Dani · seção masculina, independente do tema geral ===== -->
+  <section class="section dani-corner is-secret" id="cantinho-dani" aria-hidden="true" aria-labelledby="daniCornerTitle">
+    <div class="dani-bg-art dani-bg-goku" aria-hidden="true"></div>
+    <div class="dani-bg-art dani-bg-broly" aria-hidden="true"></div>
+    <div class="dani-bg-art dani-bg-shenron" aria-hidden="true"></div>
+    <div class="dani-bg-art dani-bg-zlogo" aria-hidden="true"></div>
+    <div class="dani-bg-art dani-bg-supercollage" aria-hidden="true"></div>
+    <div class="dani-bg-art dani-bg-classic" aria-hidden="true"></div>
+    <div class="dani-bg-art dani-bg-aura" aria-hidden="true"></div>
+    <div class="dani-vignette" aria-hidden="true"></div>
+    <div class="dani-grid-lines" aria-hidden="true"></div>
+    <div class="dani-orbit dani-orbit-a" aria-hidden="true"></div>
+    <div class="dani-orbit dani-orbit-b" aria-hidden="true"></div>
+    
+    <div class="dani-head">
+      <div>
+        <span class="dani-kicker">ÁREA RESERVADA · DANI</span>
+        <h2 class="dani-title" id="daniCornerTitle">Cantinho de Dani</h2>
+        <p class="dani-subtitle">Um arquivo mais sóbrio, intenso e preciso — Dragon Ball, Goku, Broly, as Esferas do Dragão e leitura oficial para entrar direto na história.</p>
+      </div>
+      <div class="dani-mark" aria-hidden="true"><span>18</span><b>D</b></div>
+    </div>
+
+    <button class="secret-bubble secret-bubble-dani" id="daniSecretBubble" type="button" aria-label="Uma coisinha secreta do Dani"><span class="secret-bubble-glow">DANI</span><i>✦</i></button><span class="secret-message" id="daniSecretBubbleMessage" aria-live="polite"></span>
+
+    <div class="dani-phrase-box" aria-live="polite">
+      <div class="dani-phrase-top"><span class="dani-phrase-kicker">EI, JASMYN… · ACESSO CONFIDENCIAL 👀</span><span class="dani-phrase-chip">DANI.EXE ✦</span></div>
+      <p id="daniFunnyPhrase">Então você quer espiar meus gostos? 👀🐉</p>
+      <span class="dani-phrase-spark" aria-hidden="true">✦</span>
+    </div>
+
+    <div class="dani-mini-dashboard" aria-label="Painel interativo do Cantinho de Dani">
+      <div class="dani-ki-card">
+        <div class="dani-mini-label">⚡ KI DO CANTINHO <span class="dani-cycle-chip" id="daniCycleValue">CICLO 1</span></div>
+        <div class="dani-ki-row"><div class="dani-ki-track"><span id="daniKiBar"></span></div><b id="daniKiValue">0%</b></div>
+        <small id="daniKiText">A jornada começa com a primeira leitura concluída. ⚡</small>
+      </div>
+      <button class="dani-secret-btn" id="daniKiBtn" type="button">⚡ LIBERAR KI <span>↗</span></button>
+      <button class="dani-secret-btn dani-shenron-btn" id="daniShenronBtn" type="button">🐉 INVOCAR SHENRON <span>✦</span></button>
+    </div>
+
+    <div class="dani-divider"><span></span><i>✦</i><span></span></div>
+
+    <div class="dani-intro">
+      <div class="dani-intro-badge">DRAGON BALL · READING ARCHIVE</div>
+      <p><strong>Português + Español.</strong> 🐉 Esta área reúne as duas grandes linhas do mangá: <strong>Dragon Ball</strong> (a história original, que corresponde à divisão “Z” do anime) e <strong>Dragon Ball Super</strong>. Não hospedo scans nem traduções de fãs: os botões levam para plataformas oficiais onde a leitura digital/licenciada estiver disponível.</p>
+    </div>
+
+
+
+    <div class="dani-series-grid" aria-label="Obras de Dragon Ball">
+      <a class="dani-series-panel dani-series-z" href="https://mangaplus.shueisha.co.jp/" target="_blank" rel="noopener">
+        <div class="dani-series-bg" aria-hidden="true"></div>
+        <div class="dani-series-glow" aria-hidden="true"></div>
+        <div class="dani-series-content">
+          <span class="dani-series-kicker">🐉 A OBRA ORIGINAL · CLÁSSICO</span>
+          <h3>DRAGON BALL <b>Z</b></h3>
+          <p>Goku cresce, luta, treina e atravessa uma das maiores aventuras do mangá.</p>
+          <span class="dani-series-cta">VER OPÇÕES DE LEITURA ↗</span>
+        </div>
+        <span class="dani-series-watermark" aria-hidden="true">DRAGON BALL</span>
+      </a>
+
+      <a class="dani-series-panel dani-series-super" href="https://mangaplus.shueisha.co.jp/" target="_blank" rel="noopener">
+        <div class="dani-series-bg" aria-hidden="true"></div>
+        <div class="dani-series-glow" aria-hidden="true"></div>
+        <div class="dani-series-content">
+          <span class="dani-series-kicker">⚡ A CONTINUAÇÃO · NOVOS UNIVERSOS</span>
+          <h3>DRAGON BALL <b>SUPER</b></h3>
+          <p>Universos, deuses, novos limites e batalhas que levam Goku e Vegeta ainda mais longe.</p>
+          <span class="dani-series-cta">VER OPÇÕES DE LEITURA ↗</span>
+        </div>
+        <span class="dani-series-watermark" aria-hidden="true">SUPER</span>
+      </a>
+    </div>
+
+    <div class="dani-recommendation">
+      <div class="dani-rec-icon">🎯</div>
+      <div class="dani-rec-copy">
+        <span class="dani-kicker">DANI RECOMENDA</span>
+        <h3 id="daniRecTitle">Comece pelo clássico. Depois deixe o Super te puxar. 👀</h3>
+        <p id="daniRecText">Se você nunca entrou de verdade nesse universo, a aventura original é o melhor portal. Quando terminar, o Super já está te esperando.</p>
+      </div>
+      <button class="dani-rec-btn" id="daniRecBtn" type="button">TROCAR DICA ↻</button>
+    </div>
+
+    <div class="dani-reading-head">
+      <div>
+        <span class="dani-kicker">LEITURA</span>
+        <h3>Escolha o idioma e entre na obra</h3>
+      </div>
+      <span class="dani-reading-status"><i></i> LINKS OFICIAIS</span>
+    </div>
+
+    <div class="dani-books">
+      <article class="dani-book-card dani-reader-card">
+        <div class="dani-card-top"><span class="dani-code">DRAGON BALL · ORIGINAL / Z</span><span class="dani-dot"></span><span class="dani-lang">PT-BR + ES</span></div>
+        <div class="dani-card-title-art dani-title-art-z"><span>DRAGON BALL</span><b>Z</b></div>
+        <h3>Dragon Ball — Português + Español</h3>
+        <div class="dani-copy">
+          <span class="dani-label">SINOPSES</span>
+          <p><strong>PT:</strong> Goku conhece Bulma e parte em busca das sete Esferas do Dragão. O que começa como uma aventura divertida cresce para uma jornada de treinamento, torneios, amizades e batalhas que mudam o destino do planeta.</p>
+          <p><strong>ES:</strong> Goku conoce a Bulma y se embarca en la búsqueda de las siete Esferas del Dragón. La aventura evoluciona hasta convertirse en una historia de entrenamiento, torneos, amistades y combates que cambian el destino del planeta.</p>
+        </div>
+        <div class="dani-language-row"><span>🇧🇷 PORTUGUÊS</span><span>🇪🇸 ESPAÑOL</span></div>
+        <div class="dani-actions"><a class="dani-link dani-link-primary" href="https://mangaplus.shueisha.co.jp/" target="_blank" rel="noopener">Ler em Español · MANGA Plus ↗</a><a class="dani-link" href="https://www.kobo.com/br/pt/series/dragon-ball" target="_blank" rel="noopener">Opções digitais PT-BR</a></div>
+        <small class="dani-availability">A leitura gratuita oficial em espanhol é confirmada pela MANGA Plus; no português, as fontes encontradas oferecem amostras/edições digitais, não capítulos completos gratuitos.</small>
+      </article>
+
+      <article class="dani-book-card dani-book-card-super dani-reader-card">
+        <div class="dani-card-top"><span class="dani-code">DRAGON BALL SUPER</span><span class="dani-dot"></span><span class="dani-lang">PT-BR + ES</span></div>
+        <div class="dani-card-title-art dani-title-art-super"><span>DRAGON BALL</span><b>SUPER</b></div>
+        <h3>Dragon Ball Super — Português + Español</h3>
+        <div class="dani-copy">
+          <span class="dani-label">SINOPSES</span>
+          <p><strong>PT:</strong> Depois de Majin Boo, Goku continua treinando e encontra Beerus, o Deus da Destruição. A história cresce para envolver outros universos, deuses, Saiyajins e novas ameaças.</p>
+          <p><strong>ES:</strong> Después de Majin Boo, Goku sigue entrenando y conoce a Beerus, el Dios de la Destrucción. La historia se expande hacia otros universos, dioses, Saiyajins y nuevas amenazas.</p>
+        </div>
+        <div class="dani-language-row"><span>🇧🇷 PORTUGUÊS</span><span>🇪🇸 ESPAÑOL</span></div>
+        <div class="dani-actions"><a class="dani-link dani-link-primary" href="https://mangaplus.shueisha.co.jp/" target="_blank" rel="noopener">Ler em Español · MANGA Plus ↗</a><a class="dani-link" href="https://www.kobo.com/br/pt/series/dragon-ball-super" target="_blank" rel="noopener">Opções digitais PT-BR</a></div>
+        <small class="dani-availability">MANGA Plus confirma Dragon Ball Super em espanhol; a disponibilidade de capítulos pode variar por idioma e região.</small>
+      </article>
+    </div>
+
+    <div class="dani-drawings-entry">
+      <div><span class="dani-kicker">ARQUIVO PARTICULAR · MOMO</span><h3>Desenhos do Momo</h3><p>Um espaço só seu para os desenhos que você quiser guardar aqui. Quando você me mandar as artes, elas entram neste carrossel com transição suave.</p></div>
+      <button class="dani-drawings-btn" id="daniDrawingsBtn" type="button">🎨 ABRIR DESENHOS DO MOMO <span>→</span></button>
+    </div>
+
+    <div class="dani-source-deck">
+      <div class="dani-source-head"><span class="dani-kicker">ONDE LER</span><p>Separei fontes diferentes e mantive apenas destinos oficiais/licenciados.</p></div>
+      <div class="dani-source-grid">
+        <a href="https://mangaplus.shueisha.co.jp/" target="_blank" rel="noopener" class="dani-source-pill"><b>MANGA Plus</b><span>Leitura oficial · Español</span><i>↗</i></a>
+        <a href="https://www.kobo.com/br/pt/series/dragon-ball" target="_blank" rel="noopener" class="dani-source-pill"><b>Kobo Brasil</b><span>Dragon Ball · PT-BR</span><i>↗</i></a>
+        <a href="https://www.kobo.com/br/pt/series/dragon-ball-super" target="_blank" rel="noopener" class="dani-source-pill"><b>Kobo Brasil</b><span>Dragon Ball Super · PT-BR</span><i>↗</i></a>
+        <a href="https://panini.com.br/planet-manga/dragon-ball" target="_blank" rel="noopener" class="dani-source-pill"><b>Panini Brasil</b><span>Catálogo oficial · PT-BR</span><i>↗</i></a>
+        <a href="https://www.normacomics.com/dragon-ball-01-ultimate-edition.html" target="_blank" rel="noopener" class="dani-source-pill"><b>Norma Comics</b><span>Edición española</span><i>↗</i></a>
+        <a href="https://www.normacomics.com/dragon-ball-super-01.html" target="_blank" rel="noopener" class="dani-source-pill"><b>Norma Comics</b><span>Dragon Ball Super · ES</span><i>↗</i></a>
+      </div>
+    </div>
+
+    <div class="dani-z-note">
+      <div class="dani-z-badge">Z</div>
+      <div><strong>Sobre “Dragon Ball Z”:</strong><p>O mangá principal não é uma série separada chamada “Z”. A história de <em>Dragon Ball</em> é a obra original; “Dragon Ball Z” é a divisão usada pelo anime para a parte adulta de Goku. Por isso, aqui o arquivo reúne <strong>Dragon Ball</strong> + <strong>Dragon Ball Super</strong>, em vez de fingir que existe um “mangá Z” independente.</p></div>
+    </div>
+
+    <div class="dani-note"><span class="dani-note-light">●</span> <strong>Regra deste cantinho:</strong> os capítulos completos ficam nas plataformas autorizadas. A página pode trazer capas, artes oficiais, sinopses próprias e atalhos de leitura/licenciamento, mas não hospeda scans ou traduções não autorizadas.</div>
+  </section>
+
+</main>
+
+<!-- ===== Helena · tela própria ===== -->
+<div class="helena-overlay" id="helenaOverlay" role="dialog" aria-modal="true" aria-labelledby="helenaTitle" aria-hidden="true">
+  <div class="helena-sheet">
+    <div class="helena-topline"><span>👑 DE PLANTÃO</span><button id="helenaClose" type="button" aria-label="Fechar Helena">✕</button></div>
+    <header class="helena-hero">
+      <div class="helena-orb" aria-hidden="true"><span>✦</span><b>H</b></div>
+      <div><span class="helena-kicker">A AJUDANTE DA RAINHA</span><h2 id="helenaTitle">Helena <i>♡</i></h2><p>Uma amiga para conversar, ouvir, brincar e encontrar a próxima história.</p></div>
+    </header>
+    <section class="helena-chat-panel">
+      <div class="helena-status"><span class="helena-status-dot"></span> Helena está ouvindo <small>conversa local · rápida</small></div>
+      <div class="helena-reply" id="helenaReply" aria-live="polite"></div>
+      <form class="helena-form" id="helenaForm">
+        <label class="sr-only" for="helenaInput">Fale com Helena</label>
+        <input id="helenaInput" type="text" autocomplete="off" enterkeyhint="send" placeholder="Fala comigo, minha rainha…">
+        <button class="helena-send" type="submit" aria-label="Enviar">➤</button>
+        <button class="helena-clear" id="helenaClear" type="button" aria-label="Limpar conversa">↺</button>
+      </form>
+      <div class="helena-prompts" aria-label="Assuntos rápidos">
+        <button type="button" data-helena-prompt="Oi Helena, tudo bem?">👑 Oi Helena</button>
+        <button type="button" data-helena-prompt="Quero uma história romântica">🌹 Me indica uma</button>
+        <button type="button" data-helena-prompt="Quero desabafar">🤍 Quero desabafar</button>
+        <button type="button" data-helena-prompt="O que você acha de mim?">👀 O que acha de mim?</button>
+        <button type="button" data-helena-prompt="Estou falando do Kevin">💌 Sobre o Kevin</button>
+        <button type="button" data-helena-prompt="Deixa você escolher por mim">🎲 Escolhe por mim</button>
+      </div>
+    </section>
+    <section class="helena-note"><span>✦</span><div><b>Helena conhece o seu jeitinho</b><p>Ela aprende apenas neste aparelho: seus pedidos, seu humor e os assuntos que você escolhe compartilhar.</p></div></section>
+    <button class="helena-back" type="button" onclick="document.getElementById('helenaClose')?.click()">♡ Voltar para meu cantinho</button>
+  </div>
+</div>
+
+<!-- ===== Perfil de Jasmyn · VJK1 ===== -->
+<div class="profile-overlay" id="profileOverlay" role="dialog" aria-modal="true" aria-labelledby="profileTitle" aria-hidden="true">
+  <div class="profile-sheet">
+    <div class="profile-hero profile-hero-vjk1">
+      <div class="profile-cover-art" aria-hidden="true"><span></span><i></i><b></b></div>
+      <button class="profile-close" id="profileClose" type="button" aria-label="Fechar perfil">✕</button>
+      <div class="profile-avatar-wrap-vjk1">
+        <div class="profile-avatar-shell" id="profileAvatarShell">
+          <img id="profileAvatar" src="assets/profile/jasmyn-profile.webp" alt="Foto de Jasmyn" class="profile-avatar" loading="eager" decoding="async">
+          <span class="profile-avatar-shine" aria-hidden="true"></span>
+        </div>
+        <label class="profile-camera profile-camera-vjk1" for="profilePhotoInput" aria-label="Trocar foto de perfil">📷</label>
+        <input id="profilePhotoInput" class="profile-file-input" type="file" accept="image/*">
+      </div>
+      <div class="profile-name-row">
+        <h2 id="profileTitle">Jasmyn ♡</h2>
+        <span class="profile-verified">feito para você</span>
+      </div>
+      <p class="profile-bio" id="profileBio">Meu cantinho, minhas histórias e um pouquinho de carinho. ♡</p>
+      <div class="profile-hero-actions">
+        <button class="profile-edit-main" id="profileEditBtn" type="button"><span>✎</span> Editar perfil</button>
+        <label class="profile-photo-main" for="profilePhotoInput"><span>＋</span> Nova foto</label>
+      </div>
+      <div class="profile-presence"><span id="profileHeroDetail">♡</span><b>Meu espaço</b><em>um cantinho só seu</em></div>
+    </div>
+
+    <div class="profile-content profile-content-vjk1">
+      <section class="profile-section profile-editor hidden" id="profileEditor">
+        <div class="profile-section-head"><div><span class="profile-kicker">EDITAR MEU ESPAÇO</span><h3>Deixa com a sua cara ♡</h3></div><span class="section-symbol">✎</span></div>
+        <div class="profile-edit-preview">
+          <div class="profile-edit-avatar-wrap"><img id="profileEditAvatar" src="assets/profile/jasmyn-profile.webp" alt="Prévia da foto de perfil" class="profile-edit-avatar"></div>
+          <div><strong>Foto de perfil</strong><p>Escolha uma imagem. Eu preparo o corte quadrado automaticamente.</p><label class="profile-photo-picker" for="profilePhotoInput"><span>📷</span> Escolher foto</label></div>
+        </div>
+        <label class="profile-field"><span>Como quer ser chamada?</span><input id="profileNameInput" maxlength="28" type="text" autocomplete="name" placeholder="Jasmyn"></label>
+        <label class="profile-field"><span>Uma frase só sua</span><textarea id="profileBioInput" maxlength="100" rows="2" placeholder="Escreva uma frase que combine com você…"></textarea></label>
+        <div class="profile-editor-actions"><button class="btn btn-primary" id="profileSaveBtn" type="button">Salvar alterações ♡</button><button class="btn btn-ghost" id="profileCancelBtn" type="button">Cancelar</button></div>
+        <button class="profile-reset-photo" id="profileResetPhotoBtn" type="button">↺ Usar a foto que preparei para você</button>
+      </section>
+
+      <section class="profile-section profile-today profile-panel-soft">
+        <div class="profile-section-head"><div><span class="profile-kicker">HOJE EU ME SINTO</span><h3 id="profileMoodTitle">Escolha um humor</h3></div><span id="profileMoodEmoji" class="section-symbol">💗</span></div>
+        <div class="profile-mood-grid" id="profileMoodGrid">
+          <button type="button" data-profile-mood="apaixonada">🥰<span>Apaixonada</span></button>
+          <button type="button" data-profile-mood="poderosa">👑<span>Poderosa</span></button>
+          <button type="button" data-profile-mood="cansada">😴<span>Cansada</span></button>
+          <button type="button" data-profile-mood="dramática">🎭<span>Dramática</span></button>
+          <button type="button" data-profile-mood="curiosa">👀<span>Curiosa</span></button>
+          <button type="button" data-profile-mood="romântica">🌹<span>Romântica</span></button>
+        </div>
+        <p class="profile-mood-reply" id="profileMoodReply">Seu cantinho pode acompanhar seu humor de hoje. ♡</p>
+      </section>
+
+      <section class="profile-section profile-stats-panel">
+        <div class="profile-section-head"><div><span class="profile-kicker">MINHAS CONQUISTAS</span><h3>Meu universo de leitura</h3></div><span class="section-symbol">✦</span></div>
+        <div class="profile-stats-grid">
+          <div class="profile-stat"><strong id="profileCompletedStat">0</strong><span>histórias concluídas</span></div>
+          <div class="profile-stat"><strong id="profileFavoriteStat">0</strong><span>favoritos</span></div>
+          <div class="profile-stat"><strong id="profileWantStat">0</strong><span>na minha lista</span></div>
+        </div>
+        <div class="profile-level-card"><div class="profile-level-icon" id="profileLevelIcon">⚡</div><div><span class="profile-kicker">NÍVEL ATUAL</span><strong id="profileLevelTitle">Aquecendo o Ki</strong><p id="profileLevelText">Cada história concluída faz seu poder crescer.</p></div></div>
+      </section>
+
+      <section class="profile-quick-section" aria-label="Atalhos do meu cantinho">
+        <span class="profile-kicker">MEUS ATALHOS ♡</span>
+        <div class="profile-quick-actions">
+          <button type="button" data-profile-nav="favorites"><span>❤️</span><b>Favoritos</b><small>as histórias que você escolheu</small></button>
+          <button type="button" data-profile-nav="want"><span>📌</span><b>Quero ler</b><small>sua lista para depois</small></button>
+          <button type="button" id="profileSurpriseBtn"><span>🎁</span><b>Surpresa de hoje</b><small>uma coisinha só sua</small></button>
+        </div>
+      </section>
+
+      <section class="profile-section profile-appearance-panel">
+        <div class="profile-section-head"><div><span class="profile-kicker">MINHA APARÊNCIA</span><h3>Escolha a personalidade visual</h3></div><span class="section-symbol">◐</span></div>
+        <div class="profile-theme-grid" id="profileThemeGrid">
+          <button type="button" data-profile-theme="rose"><i></i><span>Rosa Romântica</span><small>🌹</small></button>
+          <button type="button" data-profile-theme="lavender"><i></i><span>Lavanda</span><small>💜</small></button>
+          <button type="button" data-profile-theme="stars"><i></i><span>Noite de Estrelas</span><small>🌙</small></button>
+          <button type="button" data-profile-theme="princess"><i></i><span>Princesa</span><small>👑</small></button><button type="button" data-profile-theme="ocean"><i></i><span>Oceano</span><small>🌊</small></button><button type="button" data-profile-theme="wine"><i></i><span>Vinho</span><small>🍷</small></button><button type="button" data-profile-theme="pearl"><i></i><span>Pérola</span><small>🫧</small></button>
+        </div>
+        <div class="profile-setting-row"><div><strong>Brilhinhos delicados</strong><span>Pequenos detalhes, sem pesar o celular.</span></div><button type="button" class="profile-switch active" id="profileSparkleToggle" aria-pressed="true"><span></span></button></div>
+      </section>
+
+      <section class="profile-section profile-preferences-panel">
+        <div class="profile-section-head"><div><span class="profile-kicker">MEU JEITO ♡</span><h3>Como quero a minha experiência</h3></div><span class="section-symbol">⚙</span></div>
+        <div class="profile-setting-list">
+          <button type="button" class="profile-setting-card" id="profileMotionToggle" aria-pressed="true"><span class="profile-setting-icon">✨</span><span><b>Movimentos suaves</b><small>Pequenas animações sem deixar a página pesada.</small></span><i class="profile-setting-check">✓</i></button>
+          <button type="button" class="profile-setting-card" id="profileAutoplayToggle" aria-pressed="true"><span class="profile-setting-icon">▶</span><span><b>Carrossel automático</b><small>Deixa as histórias trocarem sozinhas a cada alguns segundos.</small></span><i class="profile-setting-check">✓</i></button>
+          <button type="button" class="profile-setting-card" id="profileCompactToggle" aria-pressed="false"><span class="profile-setting-icon">↕</span><span><b>Modo compacto</b><small>Mais histórias na tela, menos espaço entre as divisões.</small></span><i class="profile-setting-check">✓</i></button>
+          <button type="button" class="profile-setting-card" id="profileGlowToggle" aria-pressed="true"><span class="profile-setting-icon">✦</span><span><b>Brilho do cantinho</b><small>Controla os reflexos e brilhos delicados do perfil.</small></span><i class="profile-setting-check">✓</i></button>
+          <button type="button" class="profile-setting-card" id="profileDepthToggle" aria-pressed="true"><span class="profile-setting-icon">◈</span><span><b>Profundidade elegante</b><small>Deixa cartões e botões mais destacados do fundo.</small></span><i class="profile-setting-check">✓</i></button>
+        </div>
+        <div class="profile-custom-row"><div><span class="profile-kicker">INTENSIDADE</span><strong>Quanto brilho você quer?</strong></div><div class="profile-choice-row" id="profileEffectChoices"><button type="button" data-profile-effect="suave">Suave</button><button type="button" data-profile-effect="magico">Mágico</button><button type="button" data-profile-effect="intenso">Intenso</button></div></div>
+        <div class="profile-custom-row"><div><span class="profile-kicker">MEU DETALHE</span><strong>Escolha o pequeno símbolo do seu cantinho</strong></div><div class="profile-detail-row" id="profileDetailChoices"><button type="button" data-profile-detail="♡">♡</button><button type="button" data-profile-detail="✦">✦</button><button type="button" data-profile-detail="✧">✧</button><button type="button" data-profile-detail="🌸">🌸</button><button type="button" data-profile-detail="☾">☾</button></div></div>
+        <div class="profile-preference-note">Você pode mudar tudo e voltar quando quiser. O seu cantinho guarda as escolhas neste aparelho. ♡</div>
+      </section>
+
+      <section class="profile-section profile-story-section">
+        <div class="profile-section-head"><div><span class="profile-kicker">NÓS DOIS ♡</span><h3>Nossa História</h3></div><span class="section-symbol">∞</span></div>
+        <div class="story-couple"><div class="story-person"><span>♡</span><strong id="storyMeDisplay">Jasmyn</strong></div><div class="story-heart">❤️</div><div class="story-person"><span>♡</span><strong id="storyPartnerDisplay">Kevin</strong></div></div>
+        <p class="story-elapsed" id="storyElapsed">Configure a data para começar o contador ♡</p>
+        <p class="story-date" id="storyDate">Escolham a data de vocês</p>
+        <div class="story-editor" id="storyEditor">
+          <label class="profile-field"><span>Seu nome</span><input id="storyMeInput" maxlength="28" type="text" placeholder="Jasmyn"></label>
+          <label class="profile-field"><span>Nome do namorado</span><input id="storyPartnerInput" maxlength="28" type="text" placeholder="Kevin"></label>
+          <div class="story-date-grid"><label class="profile-field"><span>Data em que começaram</span><input id="storyDateInput" type="date"></label><label class="profile-field"><span>Hora</span><input id="storyTimeInput" type="time"></label></div>
+          <label class="profile-field"><span>Nossa frase</span><input id="storyPhraseInput" maxlength="120" type="text" placeholder="Mais uma página da nossa história. ♡"></label>
+          <button class="btn btn-primary" id="storySaveBtn" type="button">Salvar nossa história ♡</button>
+        </div>
+        <p class="story-phrase" id="storyPhraseDisplay">“Mais uma página da nossa história. ♡”</p>
+      </section>
+
+      <section class="profile-love-note profile-love-note-vjk1">
+        <span class="profile-love-note-icon">💌</span>
+        <div><span class="profile-kicker">UM DETALHE DO KEVIN</span><h3>Você não é só a dona desta biblioteca.</h3><p>Entre todas as histórias que vivem aqui, você continua sendo a minha favorita. ♡</p><small>Kevin Daniel</small></div>
+      </section>
+
+      <button class="profile-back-home" id="profileBackHome" type="button">♡ Voltar para meu cantinho</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== Modal da obra ===== -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-cover" id="modalCover">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
+    </div>
+    <div class="modal-body">
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <p class="modal-alt" id="modalAlt"></p>
+      <div class="modal-meta" id="modalMeta"></div>
+      <p class="modal-synopsis" id="modalSynopsis"></p>
+      <div class="modal-fit" id="modalFit"></div>
+
+      <div class="modal-rating">
+        <span style="font-size:.85rem; color:var(--text-dim);">Sua avaliação:</span>
+        <div class="stars-input" id="modalStars">
+          <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="modalReadBtn">▶ Ler agora</button>
+        <button class="btn btn-ghost" id="modalFavBtn">♡ Favoritar</button>
+        <button class="btn btn-ghost" id="modalWantBtn">📌 Quero ler</button>
+        <button class="btn btn-ghost" id="modalCompleteBtn">✓ Acabei</button>
+      </div>
+
+      <p class="modal-section-title">Capítulos</p>
+      <section class="modal-preview" id="modalPreviewSection">
+  <div class="preview-kicker">PRÉVIA EM PORTUGUÊS · TEXTO ORIGINAL</div>
+  <h3 id="modalPreviewTitle">—</h3>
+  <p id="modalPreviewText">—</p>
+  <div class="preview-scene" id="modalPreviewScene">—</div>
+  <div class="preview-characters" id="modalCharacters">—</div>
+  <small>Esta prévia é uma apresentação/paráfrase criada para o site; não reproduz capítulos nem traduz diálogos integrais da obra.</small>
+</section>
+<div id="modalChapters"></div>
+      <p class="platform-note" id="modalPlatformNote"></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Assistente Shenron ===== -->
+<div class="dani-overlay" id="shenronOverlay" role="dialog" aria-modal="true" aria-labelledby="shenronTitle">
+  <div class="shenron-dialog">
+    <button class="shenron-close" id="shenronClose" aria-label="Fechar">✕</button>
+    <div class="shenron-hero"><div class="shenron-orb">🐉</div><div><span class="dani-kicker">DRAGON BALL · DESEJO ATIVADO</span><h2 id="shenronTitle">Diga seu desejo, Jasmyn.</h2><p>Eu sou o Shenron deste cantinho. Diga o que você quer ler e eu procuro no arquivo uma história que combine com seu desejo.</p></div></div>
+    <div class="shenron-prompts">
+      <button type="button" data-shenron-prompt="Quero uma história interessante de drama">Drama interessante</button>
+      <button type="button" data-shenron-prompt="Quero uma história de uma mulher poderosa">Mulher poderosa</button>
+      <button type="button" data-shenron-prompt="Quero romance com muita tensão">Romance com tensão</button>
+      <button type="button" data-shenron-prompt="Quero algo de Dragon Ball">Dragon Ball</button>
+    </div>
+    <form id="shenronForm" class="shenron-form"><input id="shenronInput" autocomplete="off" placeholder="Diga seu desejo…" aria-label="Diga seu desejo ao Shenron"><button type="submit">CONCEDER ✦</button></form>
+    <div id="shenronReply" class="shenron-reply" aria-live="polite"><div class="shenron-bubble"><strong>Estou esperando seu desejo… 🐉</strong><p>Pode escrever do seu jeito. Não precisa usar palavras exatas.</p></div></div>
+  </div>
+</div>
+
+<!-- ===== Galeria Desenhos do Momo ===== -->
+<div class="dani-overlay" id="drawingsOverlay" role="dialog" aria-modal="true" aria-labelledby="drawingsTitle">
+  <div class="drawings-dialog">
+    <button class="shenron-close" id="drawingsClose" aria-label="Fechar">✕</button>
+    <span class="dani-kicker">ARQUIVO PARTICULAR · MOMO</span><h2 id="drawingsTitle">Desenhos do Momo 🎨</h2><p class="drawings-intro">Uma pequena galeria só sua. Deslize para os lados para passear pelos desenhos do Momo e toque em qualquer arte para vê-la inteira.</p>
+    <div class="drawings-carousel" id="drawingsCarousel">
+      <div class="drawings-track" id="drawingsTrack" aria-live="polite"></div>
+    </div>
+    <div class="drawings-controls"><button type="button" id="drawingsPrev">← ANTERIOR</button><span id="drawingsCount">0 / 0</span><button type="button" id="drawingsNext">PRÓXIMO →</button></div>
+    <div class="drawings-empty" id="drawingsEmpty"><span>✦</span><strong>Ainda esperando os desenhos do Momo…</strong><small>Quando você mandar as artes, elas serão colocadas aqui em formato horizontal, adaptadas ao cartão. Toque em uma delas para abrir a imagem completa.</small></div>
+  </div>
+</div>
+
+<!-- ===== Presente surpresa diário de Jasmyn ===== -->
+<div class="surprise-overlay" id="surpriseOverlay" role="dialog" aria-modal="true" aria-labelledby="surpriseActionTitle">
+  <div class="surprise-card">
+    <button class="surprise-close" id="surpriseClose" type="button" aria-label="Fechar surpresa">✕</button>
+    <div class="surprise-box-art" aria-hidden="true"><span class="surprise-lid">🎁</span><span class="surprise-ribbon">✦</span></div>
+    <div class="surprise-emoji" aria-hidden="true">💋</div>
+    <span class="surprise-kicker">UMA SURPRESA SÓ SUA ♡</span>
+    <h2 id="surpriseActionTitle" class="surprise-action">UM BEIJÃO</h2>
+    <p class="surprise-text">Muaaaackk! Um beijão pra mulher mais linda do mundo. 💋</p>
+    <small class="surprise-signature">Kevin Daniel</small>
+    <span class="surprise-date">Surpresa de hoje · volte amanhã para outra ♡</span>
+    <button class="btn btn-ghost surprise-keep" type="button" onclick="document.getElementById('surpriseClose')?.click()">Guardar esse carinho ♡</button>
+  </div>
+</div>
+
+<!-- ===== Visualizador dos desenhos ===== -->
+<div class="drawings-viewer" id="drawingsViewer" role="dialog" aria-modal="true" aria-label="Visualizar desenho">
+  <button class="drawings-viewer-close" id="drawingsViewerClose" aria-label="Fechar desenho">✕</button>
+  <img id="drawingsViewerImage" alt="Desenho do Momo">
+</div>
+
+<!-- ===== Celebração: Ki no nível dos deuses ===== -->
+<div class="dani-god-overlay" id="daniGodOverlay" role="dialog" aria-modal="true" aria-label="Parabéns, Jasmyn">
+  <div class="dani-god-burst" aria-hidden="true"></div>
+  <div class="dani-god-card"><div class="dani-god-dragon">🐉</div><span class="dani-kicker">FASE 1 · O KI DESPERTOU</span><h2>Parabéns, Jasmyn! ✦</h2><p>Você agora é uma poderosa leitora. ⚡📚</p><strong>Uma nova transformação foi desbloqueada.</strong><small>Suas leituras concluídas fazem seu Ki evoluir.</small><button type="button" id="daniGodClose">CONTINUAR LENDO ♡</button></div>
+</div>
+
+<!-- ===== Toasts ===== -->
+<div class="toast-stack" id="toastStack"></div>
+
+<!-- ===== Navegação inferior (mobile) ===== -->
+<nav class="bottom-nav" aria-label="Navegação principal">
+  <button data-target="#inicio" class="active" aria-label="Início"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.8 12 3l9 7.8v8.7a1.5 1.5 0 0 1-1.5 1.5h-5v-6h-5v6h-5A1.5 1.5 0 0 1 3 19.5z"/></svg></span><span class="label">Início</span></button>
+  <button data-target="#biblioteca" aria-label="Biblioteca"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4.5h10a2 2 0 0 1 2 2V19H7a2 2 0 0 1-2-2z"/><path d="M7 7h7M7 10h7M7 13h5"/><path d="M17 6.5h1.5A1.5 1.5 0 0 1 20 8v12H8"/></svg></span><span class="label">Biblioteca</span></button>
+  <button id="navHelena" aria-label="Helena"><span class="nav-icon helena-nav-icon" aria-hidden="true"><span>H</span><i>✦</i></span><span class="label">Helena</span></button>
+  <button id="navSearch" aria-label="Buscar"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.3"/><path d="m16 16 5 5"/></svg></span><span class="label">Buscar</span></button>
+  <button data-target="#minha-lista" aria-label="Favoritos"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20.2S4 15.4 4 9.3A4.2 4.2 0 0 1 8.2 5c1.7 0 3 .8 3.8 2 0.8-1.2 2.1-2 3.8-2A4.2 4.2 0 0 1 20 9.3c0 6.1-8 10.9-8 10.9z"/></svg></span><span class="label">Favoritos</span></button>
+  <button id="navProfile" aria-label="Meu perfil"><span class="nav-avatar-wrap"><img id="navProfileAvatar" src="assets/profile/jasmyn-profile.webp" alt="Foto de Jasmyn" class="nav-avatar" loading="eager" decoding="async"><span class="nav-avatar-heart" aria-hidden="true">♡</span></span><span class="label">Perfil</span></button>
+</nav>
+
+<footer class="footer">
+  <p>Feito com carinho para Jasmyn <span class="heart">♡</span></p>
+  <p style="margin-top:6px; opacity:.7;">Este cantinho foi feito para você, Jasmyn — com carinho, histórias e muitos capítulos para descobrir.</p>
+  <div class="dani-secret-gate" id="daniSecretGate">
+    <span>Você chegou até o fim…</span>
+    <small>Tem certeza que quer entrar?</small>
+    <button class="dani-secret-gate-btn" id="footerSecret" type="button"><b>🐉 Entrar no Cantinho de Dani</b><span>área secreta · acesso reservado</span></button>
+  </div>
+  <p style="margin-top:6px; opacity:.55;">A cartinha muda uma vez por dia. ✉️</p>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
