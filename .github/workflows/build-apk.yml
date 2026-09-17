@@ -20,6 +20,9 @@ jobs:
 
       - name: Configurar Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+          accept-android-sdk-licenses: true
 
       - name: Instalar SDK Android 35
         run: |
