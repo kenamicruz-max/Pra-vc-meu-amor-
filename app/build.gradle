@@ -4,10 +4,11 @@ android {
     namespace 'com.kevindaniel.paravocemeuamor'
     compileSdk 35
     defaultConfig {
-        applicationId 'com.kevindaniel.paravocemeuamor'
+        // Separate installation identity so it can be installed alongside any older build.
+        applicationId 'com.kevindaniel.paravocemeuamor.vjk520'
         minSdk 23
         targetSdk 35
-        versionCode 520
+        versionCode 5201
         versionName '5.20'
     }
 }
